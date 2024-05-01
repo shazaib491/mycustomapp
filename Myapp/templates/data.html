@@ -1,0 +1,39 @@
+{% extends "home.html" %}
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <h1>
+        This my First data fetched by django
+    </h1>
+        <table class="table" border="2">
+            <thead id="thead">
+              <tr>
+                <th scope="col">S_NO</th>
+                <th scope="col">S_Name</th>
+                <th scope="col">Course_Name</th>
+                <th scope="col">Contact</th>
+                <th scope="col">City</th>
+                <th scope="col">Changes</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for e in emp %}
+              <tr>
+                
+                <th scope="row">{{e.s_no}}</th>
+                <td>{{e.s_name}}</td>
+                <td>{{e.course_name}}</td>
+                <td>{{e.contact_no}}</td>
+                <td>{{e.city}}</td>
+                <td><button id="dlt"><a href="/delete/{{e.s_no}}">Delete</a></button>
+                    <button id="upd"><a href="/update/{{e.s_no}}">Update</a></button></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </table>
+    <button><a href="/logout">Logout</a></button>
+
+{% endblock content %}
+
+
+
